@@ -1,11 +1,19 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
+import {useDispatch} from 'react-redux'
+import { login } from "../services/Operations/auth.op";
+import Loader from "./Loader";
+
 
 
 
 const LoginForm = () => {
 
-    const [formData,setFormData] = useState({ email:"", password:"" });
+    const [formData,setFormData] = useState({ Email:"", Password:"" });
+    const [loading,setLoading] = useState(false);
+    
+    const navigator = useNavigate()
+    const dispatch = useDispatch()
     
     function changeHandler(e){
         const {name,value} = e.target ;
@@ -17,12 +25,17 @@ const LoginForm = () => {
 
     function submitHandler(){
         console.log(formData)
+        dispatch(login(formData,navigator,setLoading))
     }
     
     
   return (
     <div>
-        <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+        {
+            loading ? <Loader/>
+            :
+            <>
+                <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                     <div className="px-4 py-3">
                         <svg className="w-6 h-6" viewBox="0 0 40 40">
                             <path
@@ -45,8 +58,8 @@ const LoginForm = () => {
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email Address</label>
                     <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
                       type="email"
-                      name="email"
-                      value={formData.email}
+                      name="Email"
+                      value={formData.Email}
                       onChange={changeHandler} />
         </div>
         <div className="mt-4">
@@ -56,14 +69,16 @@ const LoginForm = () => {
             </div>
             <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
                 type="password"
-                name="password"
-                value={formData.password}
+                name="Password"
+                value={formData.Password}
                 onChange={changeHandler}
             />
         </div>
         <div className="mt-8">
             <button onClick={submitHandler}  className="bg-[#6092ff] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#4042E2]">Login</button>
         </div>
+            </>
+        }
     </div>
   )
 }

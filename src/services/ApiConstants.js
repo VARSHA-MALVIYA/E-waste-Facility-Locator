@@ -1,8 +1,8 @@
 
-const BASEURL = 'http:\\localhost:5172'
+const BASEURL = 'http://localhost:5000/api/v1'
 
 
 export const Auth = {
-    LOGIN : `${BASEURL}/login`,
-    SIGNUP : `${BASEURL}/signup`,
+    LOGIN : `${BASEURL}/auth/login`,
+    SIGNUP : `${BASEURL}/auth/signup`,
 }
