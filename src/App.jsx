@@ -1,8 +1,8 @@
-
+import React from 'react'
 
 const App = () => {
   return (
-    <div></div>
+    <div className=' bg-slate-200'>App</div>
   )
 }
 
