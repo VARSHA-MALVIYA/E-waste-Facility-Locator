@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import { setToken, setUser } from "../../slices/Auth.slice.js";
 import { apiConnector } from "../apiConnector";
 
 
@@ -10,13 +12,29 @@ const {
 }  = Auth ;
 
 
-export function login(loginDets,navigator,setLoading)
+export function login(loginDets,navigator,setLoading,setError)
 {
     return async(dispatch) => {
         setLoading(true)
-        const res = await apiConnector('POST',LOGIN,loginDets)
-        console.log(res.data)
-        navigator("/")
+        try {
+            const res = await apiConnector('POST',LOGIN,loginDets);
+            const data = res?.data ;
+            console.log(data)
+            if(data?.success)
+            {
+                dispatch(setToken(data?.token))
+                console.log(data.user)
+                dispatch(setUser(data?.user))
+                navigator("/")
+                toast.success("Logged in")
+            }
+            else{
+                setError(data?.message)
+                toast.error("Failed")
+            }
+        } catch (error) {
+            toast.error("Something went wrong.")
+        }
         setLoading(false)
     }
 }

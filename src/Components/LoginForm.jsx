@@ -8,12 +8,17 @@ import Loader from "./Loader";
 
 
 const LoginForm = () => {
+    
 
     const [formData,setFormData] = useState({ Email:"", Password:"" });
     const [loading,setLoading] = useState(false);
+    const [error, setError] = useState(null);
     
     const navigator = useNavigate()
     const dispatch = useDispatch()
+
+    const token = localStorage.getItem('token')
+    if(token) navigator('/')
     
     function changeHandler(e){
         const {name,value} = e.target ;
@@ -22,13 +27,11 @@ const LoginForm = () => {
             [name]: value
         });
     }
-
     function submitHandler(){
         console.log(formData)
-        dispatch(login(formData,navigator,setLoading))
+        dispatch(login(formData,navigator,setLoading,setError))
     }
-    
-    
+ 
   return (
     <div>
         {
@@ -62,6 +65,7 @@ const LoginForm = () => {
                       value={formData.Email}
                       onChange={changeHandler} />
         </div>
+        
         <div className="mt-4">
             <div className="flex justify-between">
                 <label className="block mb-2 text-sm font-bold text-gray-700">Password</label>
@@ -74,6 +78,11 @@ const LoginForm = () => {
                 onChange={changeHandler}
             />
         </div>
+        
+        {
+            error && <p className="text-xs font-semibold text-red-500"> * {error}</p>
+        }
+        
         <div className="mt-8">
             <button onClick={submitHandler}  className="bg-[#6092ff] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#4042E2]">Login</button>
         </div>

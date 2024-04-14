@@ -31,3 +31,12 @@
   @keyframes l12 { 
     100%{transform: rotate(.5turn)}
   }
+
+.active{
+  color:blue;
+  border-bottom : 2px solid gray;
+}
+
+#navbar-user > ul > li {
+  color : black ;
+}
