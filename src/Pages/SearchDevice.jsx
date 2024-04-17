@@ -23,6 +23,7 @@ const SearchDevice = () => {
     const dispatch = useDispatch()
 
     
+    
 
     useEffect(()=>{
         getEwastesCategory(setLoading,setWasteCategory)
@@ -39,6 +40,8 @@ const SearchDevice = () => {
         {
             loading && <Loader/>
         }
+
+        
         
         {/* top wala section  {img+searchForm} */}
         <div className='flex w-full justify-evenly '>
