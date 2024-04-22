@@ -4,6 +4,7 @@ const initialState = {
     user : null,
     nearbyCenters : [],
     centerClickedForAppointment : null ,
+    productClickedForPurchase : null,
     deviceSelected : null ,
 };
 
@@ -25,12 +26,17 @@ const UserSlice = createSlice({
         state.centerClickedForAppointment = value.payload ;
     },
 
+    setProductClickedForPurchase : (state,value)=>{
+        state.productClickedForPurchase = value.payload ;
+    },
+
     setDeviceSelected : (state,value)=>{
         state.deviceSelected = value.payload;
     }
+
     }
 });
 
 
-export const {setUser,setUserNearbyCenters,setCenterClickedForAppointment,setDeviceSelected} = UserSlice.actions ;
+export const {setUser,setUserNearbyCenters,setCenterClickedForAppointment,setDeviceSelected,setProductClickedForPurchase} = UserSlice.actions ;
 export default UserSlice.reducer ;

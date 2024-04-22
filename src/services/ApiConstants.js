@@ -16,7 +16,8 @@ export const Waste = {
 export const Appointment = {
     BOOK_APPOINTMENT : `${BASEURL}/appointment/addAppointment`,
     GET_USER_APPOINTMENTS : `${BASEURL}/appointment/getAppointmentDetails`,
-    GET_APPOINTMENT_BY_TICKET_OR_EMAIL : `${BASEURL}/appointment/getAppointmentDetailsByTicketOrEmail`
+    GET_APPOINTMENT_BY_TICKET_OR_EMAIL : `${BASEURL}/appointment/getAppointmentDetailsByTicketOrEmail`,
+    PROCESS_APPOINTMENT : `${BASEURL}/appointment/processAppointment`
 }
 
 export const Category = {
@@ -25,11 +26,21 @@ export const Category = {
 
 export const Admin = {
     GET_UNAPPROVED_OPERATORS : `${BASEURL}/admin/getUnapprovedOperators`,
-    APPROVE_OPERATOR : `${BASEURL}/admin/approveOperator`
+    APPROVE_OPERATOR : `${BASEURL}/admin/approveOperator`,
+    CONTACT_US : `${BASEURL}/admin/contactUs`,
 }
 
 export const EducationalPopup = {
-    ADD_EDUCATIONAL_POPUP : `${BASEURL}/educationalPopup/addEducationalPopup`
+    ADD_EDUCATIONAL_POPUP : `${BASEURL}/educationalPopup/addEducationalPopup`,
+}
+
+export const Product = {
+    GET_ALL_PRODUCTS : `${BASEURL}/product/getAllProducts`,
+}
+
+export const Order = {
+    MAKE_ORDER : `${BASEURL}/order/makeOrder`,
+    GET_ORDER_BY_USERID : `${BASEURL}/order/getOrderByUserId`,
 }
 
 

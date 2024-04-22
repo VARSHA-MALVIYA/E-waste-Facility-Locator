@@ -1,6 +1,9 @@
 import notFoundGif from '../assets/bubble-gum-error-404.gif'
 import { useState,useEffect } from 'react';
 import { approveOperator, getUnapprovedOperators } from '../services/Operations/admin.op';
+import { formatDate } from '../data/utils';
+import Modal from '../Components/Modal';
+import Loader from '../Components/Loader';
 
 
 const Requests = () => {
@@ -9,10 +12,9 @@ const Requests = () => {
     const [loading, setLoading] = useState(false);
     const [pendingOperators, setPendingOperators] = useState(null)
 
-
     useEffect(()=>{
         getUnapprovedOperators(setPendingOperators,setLoading)
-    },[loading])
+    },[])
 
 
 
@@ -23,7 +25,6 @@ const Requests = () => {
     
   return (
     <div className="w-full h-full">
-
 
         <div class="flex items-start justify-between p-2 border-b rounded-t">
             <h3 class="text-xl font-semibold">
@@ -100,28 +101,13 @@ const Requests = () => {
             }
 
         </div>
-        
+
+        {loading && <Loader/>}
+
     </div>
   )
 
-    function formatDate(dateString) {
-    // Extracting day, month, and year from the date object
-    var date = new Date(dateString);
-    var day = date.getDate();
-    var month = date.getMonth() + 1; // Months are zero indexed
-    var year = date.getFullYear();
-
-    // Adding leading zeros if necessary
-    if (day < 10) {
-        day = '0' + day;
-    }
-    if (month < 10) {
-        month = '0' + month;
-    }
-
-    // Returning the formatted date string
-    return day + '/' + month + '/' + year;
-    }
+    
 }
 
 export default Requests

@@ -4,12 +4,16 @@ import notFoundGif from '../assets/bubble-gum-error-404.gif'
 import { useState } from 'react'
 import { getAppointmentDetailsByTicketOrEmail } from '../services/Operations/appointment'
 import Modal from '../Components/Modal'
+import FinalizeAppointment from './FinalizeAppointment'
 
 const ProcessAppointment = () => {
 
     const [loading, setLoading] = useState(false)
     const [appointmentData, setAppointmentData] = useState(null)
     const [notFound, setNotFound] = useState(false)
+    
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [appointmentInfo, setAppointmentInfo] = useState(null)
 
     const [formData, setFormData] = useState({
         ticket:"",
@@ -28,12 +32,28 @@ const ProcessAppointment = () => {
         console.log(formData)
         getAppointmentDetailsByTicketOrEmail(formData,setAppointmentData,setLoading,setNotFound)
     }
+
+
+    function closeModal() {
+        setIsModalOpen(false)
+    }
     
+
+    function editHandler(appointmentInfo) {
+        setIsModalOpen(true)
+        setAppointmentInfo(appointmentInfo)
+    }
     
   return (
     <div className="w-full min-h-full px-5" >
 
         {loading && <Loader/>}
+        {
+            isModalOpen &&
+            <Modal onClose={closeModal} isOpen={isModalOpen} >
+                <FinalizeAppointment appointmentInfo={appointmentInfo} />
+            </Modal>
+        }
 
         <div class=" w-full rounded-xl bg-gray-100 shadow-lg p-10 text-gray-800 relative overflow-hidden  " >
             
@@ -71,7 +91,7 @@ const ProcessAppointment = () => {
                     <thead class="text-xs  uppercase text-white bg-gray-900 ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                            Ticket
+                                Ticket
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Device Name
@@ -91,28 +111,32 @@ const ProcessAppointment = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b  hover:bg-gray-100 ">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">
-                                Silver
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td class="px-6 py-4">
-                                $2999
-                            </td>
-                            <td class="px-6 py-4">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                Active
-                            </span>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
+                        {
+                            appointmentData?.map((appointmentInfo,i)=>(
+                                <tr key={i}  class="bg-white border-b  hover:bg-gray-100 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        {appointmentInfo.ticket}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {appointmentInfo?.waste?.name}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {appointmentInfo?.waste?.category}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {appointmentInfo?.waste?.greenPoints}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${appointmentInfo?.processed ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} `} >
+                                                {appointmentInfo?.processed ? 'Completed':'Pending'}
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button onClick={()=>{editHandler(appointmentInfo)}}  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
                         
                     </tbody>
                 </table>

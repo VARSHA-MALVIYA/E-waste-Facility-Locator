@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux"
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 const Operator = ({children}) => {
   const {user} = useSelector(store => store.Auth)
+  const navigator = useNavigate()
 
-  if(user.Role === "Operator")
+  if(user && user?.Role === "Operator")
     return children;
   else
     return <Navigate to={'/accessError'} />

@@ -14,7 +14,11 @@ const Gadgets = () => {
   }
   
   return (
-    <div className="w-full h-auto gap-3 p-3 border-2 border-black justify-evenly">
+    <div className="w-full h-auto gap-3 p-3 justify-evenly md:py-16">
+
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl text-black font-bold mx-auto md:text-6xl lg:text-5xl">Some common categories of <span className="text-green-800">E-Waste</span></h2>
+        </div>
 
         {/* nav bar */}
         <div className=" h-[10vh] mx-auto gap-3 items-center m-5 justify-evenly  w-[70%] rounded-lg flex">

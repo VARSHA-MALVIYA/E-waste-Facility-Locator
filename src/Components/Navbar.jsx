@@ -7,11 +7,6 @@ const Navbar = () => {
     const {token,user} = useSelector(store => store.Auth)
     const navigator = useNavigate()
     
-
-    // async function testHandler() {
-    //     test()
-    // }
-
     const redirectHandler = ()=>{
         if(user.Role == "Normal") navigator("/dashboard")
         else if(user.Role == "Operator") navigator("/editorDashboard")
@@ -19,7 +14,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav class="bg-white border-gray-200 ">
+        <nav class="bg-transparent fixed top-0 left-0 w-full border-gray-200 bg-white z-[999] ">
 
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
@@ -55,7 +50,7 @@ const Navbar = () => {
 
                 {/* nav items {centered} */}
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
+                    <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
                     <li>
                         <NavLink to="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" >Home</NavLink>
                     </li>

@@ -20,6 +20,32 @@ import GamingComponentImg from '../assets/gaming_components.png'
 import EcomponentImg from '../assets/e_components.png'
 
 
+import bag from '../assets/bag-removebg-preview.png';
+import table from '../assets/81xglmuxwnl._sx466_-removebg-preview.png';
+import gift from "../assets/GIFT-BOX-BIG...-2-removebg-preview.png";
+import ambag from "../assets/iambag-removebg-preview.png";
+import eco from "../assets/Eco-Friendly-Handmade-Kauna-Picnic-Bag-Small-1-removebg-preview.png";
+import img1 from '../assets/img1.png';
+import download from '../assets/download.jpeg'
+import kullad from "../assets/Kullad-removebg-preview.png";
+import table2 from '../assets/table-removebg-preview.png';
+import port from '../assets/port-removebg-preview.png';
+import d2 from '../assets/download__1_-removebg-preview.png';
+
+
+import TutionIcon from '../assets/tutionIcon.png'
+import StoreIcon from '../assets/storeIcon.png'
+import appointmentIcon from '../assets/appointmentIconServices.png'
+import solutionIcon from '../assets/solutionIcon.png';
+import rewardIcon from '../assets/rewardIcon.png'
+import manageIcon from '../assets/manageIcon.png'
+
+
+import manWithWasteImage from '../assets/manWithWaste.jpg'
+import manHoldingWasteBucket from '../assets/manHoldingWasteBucket.jpg'
+import slider3 from '../assets/slider3.jpg'
+
+
 
 export const LoginDets = {
     title:"Welcome Back!",
@@ -154,3 +180,79 @@ export const ECardNavItems = [
 ]
 
 
+export const ProductDetails = [
+    
+    { id: 2, name: 'Table', greenPoints: 100, image:"https://ik.imagekit.io/0v6khtl7oow/images/products/718/gallery/1539373134__i_m_g_20181010_235826.jpg" },
+    { id: 3, name: 'Basket', greenPoints: 50, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkrWFgkeuj-P4UfJ7XlXnQDurxtiSlJFcLjTNuEu9-LA&s" },
+    { id: 4, name: 'Bag', greenPoints: 3, image: "" },
+    { id: 5, name: 'Basket', greenPoints:110 , image:eco },
+    { id: 6, name: 'Basket', greenPoints: 200, image: img1 },
+    { id: 7, name: 'Boxes', greenPoints: 2, image: download },
+    { id: 8, name: 'Kulhar', greenPoints: 190, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2YYHXvtZqC2JC8Fjbdbt5wyj0rzyKXwMrFXy2TxELlg&s" },
+    { id: 9, name: 'Table', greenPoints: 150, image: table2 },
+    { id: 10, name: 'Pot', greenPoints: 40, image: port },
+    { id: 11, name: 'Pots', greenPoints: 150, image: d2 },
+]
+
+export const OurServicesData = [
+    {
+        icon:TutionIcon,
+        title:"Awareness",
+        description:"We provide awareness about E-Waste usage in the form of Educational Popup."
+    },
+    {
+        icon:StoreIcon,
+        title:"Ecofriendly Store",
+        description:"We provide store of Ecofriendly products with no harm on environment."
+    },
+    {
+        icon:solutionIcon,
+        title:"Solution",
+        description:"We provide a full Web Solution for management of your E-Waste."
+    },
+    {
+        icon:rewardIcon,
+        title:"Reward",
+        description:"One can get rewards such as Green Points and others by giving the E-Waste."
+    },
+    {
+        icon:manageIcon,
+        title:"Management",
+        description:"A better management of your E-Waste is our responsibility."
+    },
+    {
+        icon:appointmentIcon,
+        title:"Appointment",
+        description:"Give your E-Waste hassle free, Appointment feature is provided."
+    },
+]
+
+
+export const heroSliderImages = [ manHoldingWasteBucket,slider3 ]
+
+export const WhyGiveEwasteData = [
+    {
+        reason: "Environmental Responsibility",
+        description: "By giving your E-waste to us, you contribute to reducing electronic waste in landfills, which helps in preserving the environment."
+    },
+    {
+        reason: "Data Security",
+        description: "We ensure thorough data wiping or destruction, safeguarding your sensitive information from potential breaches or misuse."
+    },
+    {
+        reason: "Compliance",
+        description: "We adhere to all relevant regulations and standards for the safe and legal disposal of electronic waste, ensuring compliance with environmental laws."
+    },
+    {
+        reason: "Resource Conservation",
+        description: "Through responsible recycling processes, we recover valuable materials from E-waste, reducing the need for raw material extraction and conserving natural resources."
+    },
+    {
+        reason: "Community Impact",
+        description: "Your contribution supports local initiatives and creates job opportunities in the recycling and sustainable waste management sector, benefiting the community."
+    },
+    {
+        reason: "Convenience",
+        description: "We offer hassle-free E-waste disposal solutions, making it easy for you to responsibly dispose of your electronics without worrying about logistics or environmental impact."
+    }
+]

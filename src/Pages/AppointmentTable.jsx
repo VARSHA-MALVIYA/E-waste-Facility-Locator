@@ -4,6 +4,7 @@ import { useState } from "react";
 import { bookAppointment } from "../services/Operations/appointment";
 import Loader from '../Components/Loader'
 import BookedIcon from '../assets/bookedAppointment_ani.gif'
+import { useNavigate } from "react-router-dom";
 
 const AppointmentTable = () => {
     
@@ -20,6 +21,7 @@ const AppointmentTable = () => {
     })
     const [loading,setLoading] = useState(false)
     const [showModal, setShowModal] = useState(false)
+    const navigator = useNavigate()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,7 +42,7 @@ const AppointmentTable = () => {
     }
 
     const  handleSubmit = ()=>{
-        bookAppointment(reqBody,setLoading,setShowModal)
+        bookAppointment(reqBody,setLoading,setShowModal,navigator)
     }
     
   return (
@@ -186,7 +188,7 @@ const AppointmentTable = () => {
                     <h3 class="text-2xl font-semibold flex-1">Appointment Booked!</h3>
                     <p class="text-sm text-gray-500 mt-2">Your booking has been confirmed. <br />
                         Check your email for details.</p>
-                    <button type="button" onClick={()=>setShowModal(false)}
+                    <button type="button" onClick={()=>{setShowModal(false); navigator('/')}}
                         class="px-6 py-2.5 mt-8 w-full rounded text-white text-sm font-semibold border-none outline-none bg-green-500 hover:bg-green-600">Got
                         it</button>
                     </div>

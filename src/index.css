@@ -40,3 +40,7 @@
 #navbar-user > ul > li {
   color : black ;
 }
+
+.aboutBg{
+  background-image: url('./assets/about_bg.png');
+}
