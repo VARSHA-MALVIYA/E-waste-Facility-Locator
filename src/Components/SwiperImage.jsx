@@ -10,7 +10,7 @@ import { heroSliderImages } from '../data/data';
 
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 export default function SwiperImage() {
   return (
@@ -19,7 +19,8 @@ export default function SwiperImage() {
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination]}
+        modules={[Pagination,Autoplay]}
+        autoplay={true}
         
         className="w-full h-full mySwiper"
       >

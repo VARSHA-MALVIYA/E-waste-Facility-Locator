@@ -58,7 +58,6 @@ const AddEducationalPopup = () => {
             </button>
             
             <div class="absolute top-0 left-0 w-full h-2 flex">
-                
                 <div class="h-2 bg-[#111827] flex-1"></div>
             </div>
             

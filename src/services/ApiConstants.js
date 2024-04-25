@@ -11,6 +11,8 @@ export const Waste = {
     GET_ALL_CATEGORIES : `${BASEURL}/waste/getEwastesCategory`,
     GET_DEVICES_OF_SELECTED_CATEGORY : `${BASEURL}/waste/getSelectedCategoryWasteInfo`,
     GET_SELECTED_DEVICE_INFO : `${BASEURL}/waste/getDeviceDetails`,
+    GET_ALL_DEVICES : `${BASEURL}/waste/getAllDevices`,
+    UPDATE_DEVICE_INFO : `${BASEURL}/waste/updateDeviceInfo`,
 }
 
 export const Appointment = {
@@ -25,13 +27,16 @@ export const Category = {
 }
 
 export const Admin = {
+    ADD_EWASTE : `${BASEURL}/admin/add_ewaste`,
     GET_UNAPPROVED_OPERATORS : `${BASEURL}/admin/getUnapprovedOperators`,
     APPROVE_OPERATOR : `${BASEURL}/admin/approveOperator`,
     CONTACT_US : `${BASEURL}/admin/contactUs`,
 }
 
 export const EducationalPopup = {
+    GET_ALL_EDUCATIONAL_POPUP : `${BASEURL}/educationalPopup/getAllEducationalPopupDetails`,
     ADD_EDUCATIONAL_POPUP : `${BASEURL}/educationalPopup/addEducationalPopup`,
+    UPDATE_EDUCATIONAL_POPUP : `${BASEURL}/educationalPopup/updateEducationalPopup`,
 }
 
 export const Product = {

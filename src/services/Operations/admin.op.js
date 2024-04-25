@@ -6,7 +6,8 @@ import { Admin } from "../ApiConstants"
 const {
     GET_UNAPPROVED_OPERATORS,
     APPROVE_OPERATOR,
-    CONTACT_US
+    CONTACT_US,
+    ADD_EWASTE
 } = Admin
 
 export const getUnapprovedOperators = async(setPendingOperators,setLoading)=>{
@@ -50,6 +51,30 @@ export const ContactUs = async(formData,setShowModal,setLoading) => {
         }
     } catch (error) {
         console.log(error)
+    }
+    setLoading(false)
+}
+
+export const addEwaste = async(formData,setShowModal,setLoading,setFormData) => {
+    setLoading(true)
+    try {
+        const res = await apiConnector('POST',ADD_EWASTE,formData)
+        const {data} = res ;
+        if(data.success) {
+            toast.success("Added")
+            setShowModal(true)
+            setFormData({
+                name: '',
+                modelNumber: '',
+                category: '',
+                greenPoints: 0,
+                preciousMetals: [{ name: '', weight: '' }]
+            })
+        }
+        else toast.error("Something went wrong")
+    } catch (error) {
+        console.log(error)
+        toast.error("Something went wrong")
     }
     setLoading(false)
 }

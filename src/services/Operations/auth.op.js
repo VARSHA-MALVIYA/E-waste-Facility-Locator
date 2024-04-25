@@ -16,6 +16,7 @@ export function login(loginDets,navigator,setLoading,setError)
 {
     return async(dispatch) => {
         setLoading(true)
+        console.log("comming into login op")
         try {
             const res = await fetch(LOGIN, {
                 method: 'POST',
@@ -32,9 +33,12 @@ export function login(loginDets,navigator,setLoading,setError)
                 if(data?.success)
                 {
                     dispatch(setToken(data?.token))
-                    console.log(data.user)
                     dispatch(setUser(data?.user))
-                    navigator("/")
+
+                    if(data?.user?.Role === "Normal")  navigator("/")
+                    else if(data?.user?.Role === "Operator")  navigator("/editorDashboard")
+                    else  navigator("/adminDashboard")
+                   
                     toast.success("Logged in")
                 }
                 else{

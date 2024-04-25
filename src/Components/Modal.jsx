@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <>
       {isOpenState && (
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 overflow-y-auto z-[1000]">
           <div className="flex items-center justify-center min-h-screen">
             <div className="fixed inset-0 bg-black opacity-50"></div>
             <div className="relative p-8 bg-white rounded-lg">

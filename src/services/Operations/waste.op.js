@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { setDeviceSelected } from "../../slices/User.slice";
 import { Waste, scrollToSection } from "../ApiConstants";
 import { apiConnector } from "../apiConnector";
@@ -6,7 +7,9 @@ import { apiConnector } from "../apiConnector";
 const {
     GET_ALL_CATEGORIES,
     GET_DEVICES_OF_SELECTED_CATEGORY,
-    GET_SELECTED_DEVICE_INFO
+    GET_SELECTED_DEVICE_INFO,
+    GET_ALL_DEVICES,
+    UPDATE_DEVICE_INFO
 } = Waste
 
 
@@ -51,4 +54,36 @@ export function getSelectedDeviceInfo(selectedCategory,selectedDevice,setDeviceD
         }
         setLoading(false)
     }
+}
+
+export async function getAllDevices(setAllDevices,setLoading){
+    setLoading(true)
+    try {
+        const res = await apiConnector("GET",GET_ALL_DEVICES)
+        const {data} = res ;
+        setAllDevices(data)
+        console.log(data)
+    } catch (error) {
+        toast.error("Something went wrong")
+    }
+    setLoading(false)
+}
+
+
+export const updateDeviceInfo = async(formData,setLoading,setShowModal) => {
+    setLoading(true)
+    try {
+        const res = await apiConnector('PUT',UPDATE_DEVICE_INFO,formData)
+        const {data} = res ;
+        if(data.success)
+        {
+            toast.success("Updated")
+            setShowModal(true)
+        }
+        else toast.error("Something went wrong")
+    } catch (error) {
+        console.log(error)
+        toast.error("Something went wrong")
+    }
+    setLoading(false)
 }

@@ -4,7 +4,7 @@ import { approveOperator, getUnapprovedOperators } from '../services/Operations/
 import { formatDate } from '../data/utils';
 import Modal from '../Components/Modal';
 import Loader from '../Components/Loader';
-
+import DataNotFoundGif from '../assets/Data_notfound_ani.gif'
 
 const Requests = () => {
     
@@ -35,7 +35,7 @@ const Requests = () => {
         <div className="relative w-full px-5 py-10 overflow-hidden text-gray-800 bg-gray-100 shadow-lg rounded-xl">
 
             {
-                pendingOperators ?
+                pendingOperators?.length > 0 ?
                     // show table
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -94,9 +94,9 @@ const Requests = () => {
                     </div>
                 :
                     // error
-                    <div className='flex flex-col items-center justify-center'>
-                        <img src={notFoundGif} alt="" className='w-[200px] h-[200px]' />
-                        <p className='font-semibold text-center text-red-600'>Data Not Found</p>
+                    <div className="flex flex-col items-center justify-center py-10">
+                        <img src={DataNotFoundGif} alt="" />
+                        <p className="font-bold text-red-600">Data Not Found</p>
                     </div>
             }
 

@@ -256,3 +256,6 @@ export const WhyGiveEwasteData = [
         description: "We offer hassle-free E-waste disposal solutions, making it easy for you to responsibly dispose of your electronics without worrying about logistics or environmental impact."
     }
 ]
+
+
+export const navs = ['/','/login','/signup','/dispose','/contact','/store','/about']
