@@ -1,5 +1,5 @@
 
-const BASEURL = 'https://ebackend-2cdt.onrender.com'
+const BASEURL = 'https://ebackend-2cdt.onrender.com/api/v1'
 
 
 export const Auth = {
