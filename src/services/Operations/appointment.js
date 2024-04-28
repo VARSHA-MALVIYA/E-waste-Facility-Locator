@@ -34,6 +34,7 @@ export const getUserAppointment = async(setUserAppointments,setLoading)=>{
         if(data.success)
         {
             setUserAppointments(data.appointmentDetails)
+            console.log(data.appointmentDetails);
         }
         else{
             toast.error("Some error occured")

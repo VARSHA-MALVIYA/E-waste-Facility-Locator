@@ -19,17 +19,17 @@ export const addEducationalPopup = async(formData,setLoading,setFormData,setShow
         const data = res.data ;
         if(data.success)
         {
-            toast.success("Added")
+            toast.success("Added",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
             setShowModal(true)
             setFormData({title:"",description:""})
         }
         else{
-            toast.error("Something went wrong")
+            toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
         }
     } catch (error) {
         console.log("Error in frontend addEducationalPopup")
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }
@@ -42,7 +42,7 @@ export const getAllEducationalPopup = async(setAllEducationalPopup,setLoading)=>
         setAllEducationalPopup(data)
     } catch (error) {
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }
@@ -54,13 +54,13 @@ export const updateEducationalPopup = async(formData,setLoading,setShowModal) =>
         const {data} = res ;
         if(data.success)
         {
-            toast.success("Updated")
+            toast.success("Updated",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
             setShowModal(true)
         }
-        else toast.error("Something went wrong")
+        else toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     } catch (error) {
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }

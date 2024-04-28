@@ -14,7 +14,7 @@ export const getAllProducts = async(setAllProducts,setLoading) => {
         setAllProducts(data);
     } catch (error) {
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }

@@ -15,8 +15,7 @@ export const getAllCategories = async(setAllCategories)=>{
         setAllCategories(data);
 
     } catch (error) {
-        toast.error("Something went wrong")
-        console.log("got error in frontend getAllCategories")
-        console.log(error.message)
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+        
     }
 }

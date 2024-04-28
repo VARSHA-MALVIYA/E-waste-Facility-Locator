@@ -62,7 +62,6 @@ export async function getAllDevices(setAllDevices,setLoading){
         const res = await apiConnector("GET",GET_ALL_DEVICES)
         const {data} = res ;
         setAllDevices(data)
-        console.log(data)
     } catch (error) {
         toast.error("Something went wrong")
     }
@@ -77,13 +76,13 @@ export const updateDeviceInfo = async(formData,setLoading,setShowModal) => {
         const {data} = res ;
         if(data.success)
         {
-            toast.success("Updated")
+            toast.success("Updated",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
             setShowModal(true)
         }
-        else toast.error("Something went wrong")
+        else toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     } catch (error) {
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }

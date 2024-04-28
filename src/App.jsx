@@ -37,18 +37,20 @@ import Layout from './Components/Layout'
 import EducationalPopup from './Pages/EducationalPopup'
 import E_Waste from './Pages/E_Waste'
 import AdminAuthPage from './Pages/AdminAuthPage'
+import OperatorAuthPage from './Pages/OperatorAuthPage'
 
 
 const App = () => {
   return (
     
-    <div className=' bg-slate-200'>
+    <div className='w-screen bg-slate-200'>
 
       
       
       <Layout>
 
-        <Routes>
+        <Routes className={"w-screen"}>
+          
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={<AuthTemplate dets={LoginDets} />} />
           <Route path='/signup' element={<AuthTemplate dets={SignupDets}/>} />
@@ -58,6 +60,7 @@ const App = () => {
           <Route path='/about' element={<AboutUs/>} />
 
           <Route path='/admin' element={<AdminAuthPage/>} />
+          <Route path='/operator' element={<OperatorAuthPage/>} />
           
           <Route path='/test' element={<Test/>} />
           

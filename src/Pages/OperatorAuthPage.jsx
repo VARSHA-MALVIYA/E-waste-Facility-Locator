@@ -5,10 +5,10 @@ import Modal from '../Components/Modal'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 
-const AdminAuthPage = () => {
+const OperatorAuthPage = () => {
     
     const [isLogin, setIsLogin] = useState(true)
-    const [formData,setFormData] = useState({ Email:"", Password:"",Name:"",Username:"",Role:"Admin" });
+    const [formData, setFormData] = useState({Email:"", Password:"",Name:"",Username:"",Role:"Operator"})
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const navigator = useNavigate()
@@ -35,19 +35,16 @@ const AdminAuthPage = () => {
 
     function signupHandler(e) {
         e.preventDefault()
+        console.log(formData)
         signup(formData,navigator,setLoading,setError,setShowModal)
     }
     
   return (
-    <div className='flex flex-col overflow-x-hidden relative items-center mt-[13vh] justify-center w-screen h-[87vh] bg-gray-100'>
+    <div className='flex overflow-x-hidden relative items-center mt-[13vh] justify-center w-screen h-[87vh] bg-gray-100'>
 
         {loading && <Loader/>}
-
-        
         
         <div className='w-6/12 bg-white h-[80%]'>
-
-            
 
             <div class="bg-[#0891B2] shadow shadow-gray-200 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-2 md:p-5">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFF">
@@ -55,14 +52,12 @@ const AdminAuthPage = () => {
                         </svg>
             </div>
 
-            
-
             <div className='flex w-full p-3'>
-                <button onClick={()=>{setIsLogin(true); setFormData({ Email:"", Password:"",Name:"",Username:"",Role:"Admin" })}}  className={`w-1/2 p-2 text-center hover:bg-gray-100 hover:cursor-pointer ${isLogin && 'bg-[#0890b21d]'} `} >LOGIN</button>
-                <button onClick={()=>{setIsLogin(false); setFormData({ Email:"", Password:"",Name:"",Username:"",Role:"Admin" })}} className={`w-1/2 p-2 text-center hover:bg-gray-100 hover:cursor-pointer ${!isLogin && 'bg-[#0890b21d]'} `}>SIGNUP</button>
+                <button onClick={()=>{setIsLogin(true); setFormData({ Email:"", Password:"",Name:"",Username:"",Role:"Operator" })}}  className={`w-1/2 p-2 text-center hover:bg-gray-100 hover:cursor-pointer ${isLogin && 'bg-[#0890b21d]'} `} >LOGIN</button>
+                <button onClick={()=>{setIsLogin(false); setFormData({ Email:"", Password:"",Name:"",Username:"",Role:"Operator" })}} className={`w-1/2 p-2 text-center hover:bg-gray-100 hover:cursor-pointer ${!isLogin && 'bg-[#0890b21d]'} `}>SIGNUP</button>
             </div>
 
-            <h1 className='text-xl font-bold text-center'>Admin</h1>
+            <h1 className='text-xl font-bold text-center'>Operator</h1>
                     
             {
                 isLogin ? 
@@ -130,4 +125,4 @@ const AdminAuthPage = () => {
   )
 }
 
-export default AdminAuthPage
+export default OperatorAuthPage

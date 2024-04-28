@@ -15,8 +15,9 @@ const {
 export function login(loginDets,navigator,setLoading,setError)
 {
     return async(dispatch) => {
+
         setLoading(true)
-        console.log("comming into login op")
+        
         try {
             const res = await fetch(LOGIN, {
                 method: 'POST',
@@ -39,11 +40,11 @@ export function login(loginDets,navigator,setLoading,setError)
                     else if(data?.user?.Role === "Operator")  navigator("/editorDashboard")
                     else  navigator("/adminDashboard")
                    
-                    toast.success("Logged in")
+                    toast.success("Logged in",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
                 }
                 else{
                     setError(data?.message)
-                    toast.error("Failed")
+                    toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
                 }
             }
             
@@ -73,16 +74,16 @@ export async function signup(signupDets,navigator,setLoading,setError)
             if(data?.success)
             {
                 navigator("/login")
-                toast.success("Signed Up")
+                toast.success("Signed Up",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
             }
             else{
                 setError(data?.message)
-                toast.error("Failed")
+                toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
             }
         }
         
     } catch (error) {
-        toast.error("Something went wrong.")
+        toast.error("Something went wrong.",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
     }
     setLoading(false)
 }

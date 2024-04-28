@@ -258,4 +258,4 @@ export const WhyGiveEwasteData = [
 ]
 
 
-export const navs = ['/','/login','/signup','/dispose','/contact','/store','/about']
+export const navs = ['/','/login','/signup','/dispose','/contact','/store','/about','/dashboard']

@@ -22,12 +22,9 @@ export const MakeOrder = (formData,productClickedForPurchase,setLoading) => {
             const res = await apiConnector("POST",MAKE_ORDER,reqBody)
             const data = res.data ;
 
-            console.log("makeOrder res => ")
-            console.log(data)
-
             if(data.success)
             {
-                toast.success("Order Booked")
+                toast.success("Order Booked",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
                 dispatch(setUser(data.updatedUser))
             }
             else{

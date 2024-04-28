@@ -1,8 +1,9 @@
-import React from 'react'
+
 import { GetOrderByUserId } from '../services/Operations/order.op'
 import Loader from '../Components/Loader'
 import { useState,useEffect } from 'react'
 import Modal from '../Components/Modal'
+import notFoundGif from '../assets/Data_notfound_ani.gif'
 
 const MyOrders = () => {
    
@@ -30,7 +31,7 @@ const MyOrders = () => {
             <div className="max-w-xl">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Order history</h1>
                 <p className="mt-2 text-sm text-gray-500">
-                Check the status of recent orders, manage returns, and download invoices.
+                    Check the status of recent orders, manage returns, and download invoices.
                 </p>
             </div>
 
@@ -38,7 +39,9 @@ const MyOrders = () => {
                 
                 <div className="space-y-20">
                     
-                    <table className="w-full mt-4 text-gray-500 sm:mt-6">
+                    {
+                        UserOrders?.length > 0 ? 
+                        <table className="w-full mt-4 text-gray-500 sm:mt-6">
                             <caption className="sr-only">Products</caption>
                             <thead className="text-sm text-left text-gray-500 sr-only sm:not-sr-only">
                             <tr>
@@ -83,7 +86,13 @@ const MyOrders = () => {
                             ))}
                             </tbody>
                             
-                    </table>
+                        </table>
+                        :
+                        <div className='flex flex-col items-center justify-center'>
+                            <img src={notFoundGif} alt="" className='w-[200px] h-[200px]' />
+                            <p className='font-semibold text-center text-red-600'>Data Not Found</p>
+                        </div>
+                    }
                     
                 </div>
             </div>
