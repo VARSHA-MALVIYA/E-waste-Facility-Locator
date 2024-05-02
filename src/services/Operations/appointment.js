@@ -11,14 +11,13 @@ const {
     PROCESS_APPOINTMENT
 } = Appointment;
 
-export const bookAppointment = async(reqBody,setLoading,setShowModal,navigator)=>{
+export const bookAppointment = async(reqBody,setLoading,setShowModal)=>{
     setLoading(true)
     try {
         const res = await apiConnector("POST",BOOK_APPOINTMENT,reqBody)
         console.log(res.data)
-        toast.success("Appointment Booked")
+        toast.success("Appointment Booked",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
         setShowModal(true)
-        navigator('/')
     } catch (error) {
         toast.error("Something went wrong")
         console.log(error.message)

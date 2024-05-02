@@ -38,6 +38,7 @@ import EducationalPopup from './Pages/EducationalPopup'
 import E_Waste from './Pages/E_Waste'
 import AdminAuthPage from './Pages/AdminAuthPage'
 import OperatorAuthPage from './Pages/OperatorAuthPage'
+import IsLoggedIn from './Authorization/LoggedIn.authorization'
 
 
 const App = () => {
@@ -56,7 +57,13 @@ const App = () => {
           <Route path='/signup' element={<AuthTemplate dets={SignupDets}/>} />
           <Route path='/dispose' element={<Dispose/>} />
           <Route path='/contact' element={<ContactUsPage/>} />
-          <Route path='/store' element={<Store/>} />
+          
+          <Route path='/store' element={
+                                    <IsLoggedIn>
+                                      <Store/>
+                                    </IsLoggedIn>
+          } />
+                                    
           <Route path='/about' element={<AboutUs/>} />
 
           <Route path='/admin' element={<AdminAuthPage/>} />

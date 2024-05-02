@@ -2,11 +2,16 @@ import mapPinIcon from '../assets/mapPin-ani-unscreen.gif'
 // import showonmapIcon from '../assets/showonmap_ani.gif'
 import showonmapIcon from '../assets/showonmap.png'
 import appointmentIcon from '../assets/appointment.png'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setCenterClickedForAppointment } from '../slices/User.slice'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const CenterDetailCard = ({centerDets,NextHandler}) => {
+  
   const dispatch = useDispatch()
+  const {user} = useSelector(store => store.Auth)
+  const navigator = useNavigate()
   
   const {name,address,id} = centerDets ;
   return (
@@ -42,8 +47,17 @@ const CenterDetailCard = ({centerDets,NextHandler}) => {
   )
 
   function bookAppointmentHandler(){
+    loginChecker()
     dispatch(setCenterClickedForAppointment(centerDets));
     NextHandler()
+  }
+
+  function loginChecker() {
+    if(!user)
+    {
+        toast.error("Please Login First",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+        navigator("/login")
+    }
   }
   
 }

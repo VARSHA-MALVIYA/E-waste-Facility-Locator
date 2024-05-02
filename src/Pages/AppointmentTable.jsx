@@ -5,12 +5,13 @@ import { bookAppointment } from "../services/Operations/appointment";
 import Loader from '../Components/Loader'
 import BookedIcon from '../assets/bookedAppointment_ani.gif'
 import { useNavigate } from "react-router-dom";
+import Modal from "../Components/Modal";
 
 const AppointmentTable = () => {
     
     const {user} = useSelector(store => store.Auth);
     const {centerClickedForAppointment,deviceSelected} = useSelector(store => store.User);
-    
+    const [showError, setShowError] = useState(null)
 
     const centerDetails = centerClickedForAppointment;
     const deviceDetails = deviceSelected;
@@ -42,8 +43,13 @@ const AppointmentTable = () => {
     }
 
     const  handleSubmit = ()=>{
-        bookAppointment(reqBody,setLoading,setShowModal,navigator)
+        if(!formData.date && !formData.time)
+            setShowError(true)
+        else
+            bookAppointment(reqBody,setLoading,setShowModal,navigator)
     }
+
+    const closeModal = ()=> setShowModal(false)
     
   return (
     <div className="items-center  text-black w-[80%] mx-auto flex flex-col " >
@@ -142,6 +148,7 @@ const AppointmentTable = () => {
                         type="date"
                         id="date"
                         name="date"
+                        required={true}
                         value={formData.date}
                         onChange={handleChange}
                         className="w-full px-3 py-2 bg-gray-100 rounded"
@@ -154,6 +161,7 @@ const AppointmentTable = () => {
                         type="time"
                         id="time"
                         name="time"
+                        required={true}
                         value={formData.time}
                         onChange={handleChange}
                         className="w-full px-3 py-2 bg-gray-100 rounded"
@@ -164,6 +172,8 @@ const AppointmentTable = () => {
 
         </form>
 
+        <p className="italic font-semibold text-red-500"> {showError && "Please select Date or Time to proceed."} </p>
+
         <button 
                 onClick={handleSubmit}
                 class="inline-flex gap-2 my-4 items-center justify-center px-4 py-1 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
@@ -173,7 +183,8 @@ const AppointmentTable = () => {
 
         {
             showModal &&
-            <div
+            <Modal isOpen={showModal} onClose={closeModal} >
+                <div
                 class="fixed inset-0 px-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
                 <div class="w-full max-w-md bg-white shadow-lg rounded-md px-5 py-5 relative mx-auto text-center">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +204,8 @@ const AppointmentTable = () => {
                         it</button>
                     </div>
                 </div>
-            </div>
+                </div>
+            </Modal>
         }
 
     </div>

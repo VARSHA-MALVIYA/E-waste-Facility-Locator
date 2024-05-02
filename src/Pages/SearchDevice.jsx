@@ -5,12 +5,14 @@ import SearchDeviceImg from '../assets/juicy-hands-holding-gadgets-with-social-m
 import { getEwastesCategory, getSelectedCategoryWasteInfo, getSelectedDeviceInfo } from '../services/Operations/waste.op'
 import Loader from '../Components/Loader'
 import {useNavigate} from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 const SearchDevice = ({NextHandler}) => {
 
     const [wasteCategory, setWasteCategory] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
+    const {user}  = useSelector(store => store.Auth)
 
     const [selectedCategoryDevices,setSelectedCategoryDevices] = useState([])
     const [selectedDevice,setSelectedWaste] = useState(null);
