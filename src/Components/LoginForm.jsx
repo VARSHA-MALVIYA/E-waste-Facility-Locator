@@ -9,7 +9,6 @@ import Loader from "./Loader";
 
 const LoginForm = () => {
     
-
     const [formData,setFormData] = useState({ Email:"", Password:"" });
     const [loading,setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -27,6 +26,7 @@ const LoginForm = () => {
             [name]: value
         });
     }
+    
     function submitHandler(){
         console.log(formData)
         dispatch(login(formData,navigator,setLoading,setError))

@@ -40,14 +40,11 @@ import AdminAuthPage from './Pages/AdminAuthPage'
 import OperatorAuthPage from './Pages/OperatorAuthPage'
 import IsLoggedIn from './Authorization/LoggedIn.authorization'
 
-
 const App = () => {
   return (
     
     <div className='w-screen bg-slate-200'>
 
-      
-      
       <Layout>
 
         <Routes className={"w-screen"}>
@@ -99,8 +96,6 @@ const App = () => {
             <Route path='/adminDashboard/educationalPopup' element={<EducationalPopup/>} />
           </Route>
           
-
-
           <Route path='/final' element={<FinalizeAppointment/>} />
           
           <Route path='/gadget' element={<Gadgets/>} />
