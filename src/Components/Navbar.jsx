@@ -2,6 +2,7 @@ import profileIcon from '../assets/profileIcon.png'
 import { NavLink,Link, useNavigate, useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import { navs } from '../data/data';
+import userImg from '../assets/user.png'
 
 const Navbar = () => {
     
@@ -80,7 +81,7 @@ const Navbar = () => {
                             
                             // profile logo
                             <button onClick={redirectHandler}  class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                                <img class="w-8 h-8 rounded-full" src={profileIcon} alt="user photo"/>
+                                <img class="w-8 h-8 rounded-full" src={userImg} alt="userphoto"/>
                             </button>
                             
                             :

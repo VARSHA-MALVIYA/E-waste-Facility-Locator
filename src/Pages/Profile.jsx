@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-
+import userImg from '../assets/user.png'
 
 const Profile = () => {
     const {user} = useSelector(store => store.Auth)
@@ -51,18 +51,21 @@ const Profile = () => {
                 
                     <div class="">
                         
-                        
-                        
                         <form>
                             
                             <div
-                                class="w-full flex justify-between rounded-sm bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')]  bg-cover bg-center bg-no-repeat items-center">
+                                class="w-full px-5 flex justify-between rounded-sm bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')]  bg-cover bg-center bg-no-repeat items-center">
                                     
-                                <div className="h-[141px] bg-white w-[25vw] object-cover  ">
+                                {/* <div className="h-[141px] bg-white w-[25vw] object-cover  ">
                                     
+                                </div> */}
+
+                                <div className="w-[30vw] flex flex-col justify-center items-center h-[141px] bg-white border border-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
+                                    <p className="text-2xl font-bold text-green-700"> Green Points </p>
+                                    <p className="text-xl font-bold"> {user?.GreenPoints} </p>
                                 </div>
         
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxwcm9maWxlfGVufDB8MHx8fDE3MTEwMDM0MjN8MA&ixlib=rb-4.0.3&q=80&w=1080" alt=""
+                                <img src={userImg} alt="userImg"
                                     className="h-[141px] w-[141px] object-cover rounded-full "
                                 />
                                     
@@ -105,6 +108,7 @@ const Profile = () => {
                             </div>
                             
                         </form>
+                        
                     </div>
                 </div>
                 
