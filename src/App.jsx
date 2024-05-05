@@ -96,9 +96,7 @@ const App = () => {
             <Route path='/adminDashboard/educationalPopup' element={<EducationalPopup/>} />
           </Route>
           
-          <Route path='/final' element={<FinalizeAppointment/>} />
           
-          <Route path='/gadget' element={<Gadgets/>} />
           <Route path='/not' element={<DeviceNotFound/>} />
             
             
