@@ -17,7 +17,6 @@ export function login(loginDets,navigator,setLoading,setError)
     return async(dispatch) => {
 
         setLoading(true)
-        
         try {
             const res = await fetch(LOGIN, {
                 method: 'POST',
