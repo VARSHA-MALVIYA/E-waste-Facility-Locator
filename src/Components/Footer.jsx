@@ -15,15 +15,50 @@ const Footer = () => {
                   <span class="self-center text-2xl font-semibold whitespace-nowrap ">EcoGeeks</span>
               </a>
           </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
+
+
+          <div class="lg:w-full grid lg:grid-cols-5 pt-10 gap-4 sm:gap-6 sm:grid-cols-2">
+          <div>
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">Navigation</h2>
                   <ul class="text-gray-500  font-medium">
                       <li class="mb-4">
                           <NavLink to={'/about'}  class="hover:underline">About</NavLink>
                       </li>
-                      <li>
+                      <li  className="mb-4">
                           <NavLink to={'/contact'}  class="hover:underline">Contact</NavLink>
+                      </li>
+                      <li  className="mb-4">
+                          <NavLink to={'/contact'}  class="hover:underline">Store</NavLink>
+                      </li>
+                      <li  className="mb-4">
+                          <NavLink to={'/contact'}  class="hover:underline">Dispose</NavLink>
+                      </li>
+                  </ul>
+              </div>
+
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">Help Center</h2>
+                  <ul class="text-gray-500  font-medium">
+                      <li class="mb-4">
+                          <NavLink to={'/about'}  class="hover:underline">+91 9174802507</NavLink>
+                      </li>
+                      <li className="mb-4">
+                          <NavLink to={'/contact'}  class="hover:underline">ewaste123@gmail.com</NavLink>
+                      </li>
+                      <li  className="mb-4">
+                          <NavLink to={'/contact'}  class="hover:underline">New delhi(India)</NavLink>
+                      </li>
+                  </ul>
+              </div>
+
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">Services</h2>
+                  <ul class="text-gray-500  font-medium">
+                      <li class="mb-4">
+                          <NavLink to={'/about'}  class="hover:underline">Pick-Up by employees</NavLink>
+                      </li>
+                      <li>
+                          <NavLink to={'/contact'}  class="hover:underline">Self Submisson</NavLink>
                       </li>
                   </ul>
               </div>
@@ -33,8 +68,11 @@ const Footer = () => {
                       <li class="mb-4">
                           <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
                       </li>
-                      <li>
+                      <li className="mb-4">
                           <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                      </li>
+                      <li className="mb-4">
+                          <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Facebook</a>
                       </li>
                   </ul>
               </div>
@@ -51,7 +89,7 @@ const Footer = () => {
               </div>
           </div>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
       <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
           </span>

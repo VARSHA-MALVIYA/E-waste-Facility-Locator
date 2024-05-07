@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import ProductCard from '../Components/ProductCard'
 import { ProductDetails } from '../data/data'
 import { useState } from 'react'
@@ -26,7 +26,7 @@ const Store = () => {
 
   return (
     <section id="Projects"
-      class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"  >
+      className="w-fit mx-auto h-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-10 gap-x-9 mt-10 pt-8 mb-5"  >
 
         {loading && <Loader/>}
 

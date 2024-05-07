@@ -65,8 +65,8 @@ const Profile = () => {
                                     <p className="text-xl font-bold"> {user?.GreenPoints} </p>
                                 </div>
         
-                                <img src={userImg} alt="userImg"
-                                    className="h-[141px] w-[141px] object-cover rounded-full "
+                                <img src={userImg} alt="userImg" 
+                                     className="h-[141px] bg-white w-[141px] object-cover rounded-full "
                                 />
                                     
                             </div>

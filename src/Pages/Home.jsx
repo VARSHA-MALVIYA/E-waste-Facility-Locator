@@ -1,5 +1,3 @@
-
-
 import Footer from "../Components/Footer"
 import Gadgets from "../Components/Gadgets"
 import HowWeWork from "../Components/HowWeWork"
@@ -34,10 +32,10 @@ const Home = () => {
                 </p>
                 
                 <div className="items-center space-y-3 gap-x-3 sm:flex sm:space-y-0">
-                    <button className="block px-4 py-2 font-medium text-center text-white duration-150 bg-green-600 rounded-lg shadow-lg hover:bg-green-500 active:bg-green-700 hover:shadow-none">
-                        Explore
-                    </button>
-                    <Link to={"/dispose"} className="flex items-center justify-center px-4 py-2 font-medium text-gray-700 duration-150 border rounded-lg gap-x-2 hover:text-gray-500 active:bg-gray-100 md:inline-flex">
+                    <Link to={"/about"} className="block px-5 text-xl py-3 font-medium text-center text-white duration-150 bg-green-600 rounded-lg shadow-lg hover:bg-green-500 active:bg-green-700 hover:shadow-none">
+                        Explore Us
+                    </Link>
+                    <Link to={"/dispose"} className="flex text-xl items-center justify-center px-5 py-3 font-medium text-gray-700 duration-150 border rounded-lg gap-x-2 hover:text-gray-500 active:bg-gray-100 md:inline-flex">
                         Give E-Waste
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
                             <path fillRule="evenodd" d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z" clipRule="evenodd" />
@@ -47,7 +45,7 @@ const Home = () => {
             </div>
             
             {/* swiper */}
-            <div className="flex-none mt-14 md:mt-0 md:max-w-xl md:rounded-tl-[108px] overflow-hidden">
+            <div className="flex-none mt-14 md:mt-0 md:max-w-xl md:rounded-tl-[108px] sm:w-[90%]  overflow-hidden">
                 <SwiperImage/>
             </div>
 

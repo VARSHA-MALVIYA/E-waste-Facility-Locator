@@ -35,26 +35,26 @@ const ContactUsPage = () => {
     const closeModal = () => setShowModal(false)
     
   return (
-    <div class=" mx-auto p-5 bg-white">
+    <div className=" mx-auto p-5 bg-white">
 
     {loading && <Loader/>}
 
-    <div class="grid grid-cols-1 md:grid-cols-12">
+    <div className="grid grid-cols-1 md:grid-cols-12">
 
-        <div class=" md:col-span-4 p-10 text-black">
-            <p class="mt-4 text-sm leading-7 font-regular uppercase">
+        <div className= "md:col-span-4 p-10 text-black overflow-x-hidden">
+            {/* <p className="mt-4 text-sm leading-7 font-regular uppercase">
                 Contact
-            </p>
-            <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-                Get In <span class="text-indigo-600">Touch</span>
+            </p> */}
+            <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+                Get In <span className="text-indigo-600">Touch</span>
             </h3>
-            <p class="mt-4 leading-7 text-gray-700">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s.
+            <p className="mt-4 leading-7 text-gray-700">
+              If you have any questions or concerns regarding e-waste disposal, please feel free to contact us. Our email address and physical location are provided below. You can also visit your nearest e-waste center,
+              where our employees can assist you with any issues related to your e-waste.
             </p>
 
-            <div class="flex items-center mt-5">
-                <svg class="h-6 mr-2 text-indigo-600" fill="currentColor" version="1.1"
+            <div className="flex items-center mt-5">
+                <svg className="h-6 mr-2 text-indigo-600" fill="currentColor" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.536 489.536"
                     xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 489.536 489.536">
                     <g>
@@ -69,69 +69,73 @@ const ContactUsPage = () => {
                         </g>
                     </g>
                 </svg>
-                <span class="text-sm ml-2">G H-2 , I.T.I Staff Colony, Govindpura, Bhopal.</span>
+                <span className="text-sm ml-2">G H-2 , I.T.I Staff Colony, Govindpura, Bhopal.</span>
             </div>
-            <div class="flex items-center mt-5">
+            <div className="flex items-center mt-5">
+             <span className='h-7 w-7'>📩</span>
+                <span className="text-sm ml-2">malviyavarsha2004@gmail.com</span>
+            </div>
+            <div className="flex items-center mt-5">
                 <img src={PhoneIcon} className='w-5 h-5' alt="" />
-                <span class="text-sm ml-2">+93 749 99 65 50</span>
+                <span className="text-sm ml-2">+91 9174 802 507</span>
             </div>
-            <div class="flex items-center mt-5">
+            <div className="flex items-center mt-5">
             <img src={ClockIcon} className='w-5 h-5' alt="" />
-                <span class="text-sm ml-2">24/7</span>
+                <span className="text-sm ml-2">24/7</span>
             </div>
 
         </div>
-        <form class="md:col-span-8 p-10">
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        <form className="md:col-span-8 p-10">
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-first-name">
                         First Name
                     </label>
                     <input
                         name='firstName' onChange={changeHandler} value={formData.firstName}
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         id="grid-first-name" type="text" placeholder="Jane" required={true}  />
                     
                 </div>
-                <div class="w-full md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                <div className="w-full md:w-1/2 px-3">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-last-name">
                         Last Name
                     </label>
                     <input
                         name='lastName' onChange={changeHandler} value={formData.lastName}
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-last-name" type="text" placeholder="Doe" required={true} />
                 </div>
             </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-password">
                         Email Address
                     </label>
                     <input
                         name='email' onChange={changeHandler} value={formData.email}
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-email" type="email" placeholder="example@email.com" required={true} />
                 </div>
             </div>
 
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                         for="grid-password">
                         Your Message
                     </label>
                     <textarea rows="10" placeholder='Write Your Message Here' required={true}
                         name='message' onChange={changeHandler} value={formData.message}
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
                 </div>
-                <div class="flex justify-between w-full px-3">
+                <div className="flex justify-between w-full px-3">
                     
                     <button onClick={submitHandler}
-                        class="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                     >
                         Send Message
                     </button>
@@ -146,15 +150,15 @@ const ContactUsPage = () => {
     {
         showModal && 
         <Modal isOpen={showModal} onClose={closeModal} >
-            <div class="relative p-4 text-center bg-white rounded-lg shadow  sm:p-5">
-                <div class="w-12 h-12 rounded-full bg-green-100  p-2 flex items-center justify-center mx-auto mb-3.5">
-                    <svg aria-hidden="true" class="w-8 h-8 text-green-500 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Success</span>
+            <div className="relative p-4 text-center bg-white rounded-lg shadow  sm:p-5">
+                <div className="w-12 h-12 rounded-full bg-green-100  p-2 flex items-center justify-center mx-auto mb-3.5">
+                    <svg aria-hidden="true" className="w-8 h-8 text-green-500 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                    <span className="sr-only">Success</span>
                 </div>
-                <p class="mb-4 text-lg font-semibold text-gray-900 ">Message Sent Successfully</p>
+                <p className="mb-4 text-lg font-semibold text-gray-900 ">Message Sent Successfully</p>
                 <button  type="button"
                     onClick={()=>setShowModal(false)}
-                class="py-2 px-3 text-sm font-medium text-center text-black rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 ">
+                className="py-2 px-3 text-sm font-medium text-center text-black rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 ">
                     Continue
                 </button>
             </div>

@@ -46,13 +46,13 @@ const SearchDevice = ({NextHandler}) => {
         
         
         {/* top wala section  {img+searchForm} */}
-        <div className='flex w-full justify-evenly '>
+        <div className='flex flex-wrap w-full justify-evenly '>
             
             <div className=''>
                 <img src={SearchIcon} alt="" />
             </div>
 
-            <div className=' w-[50%]'>
+            <div className=' sm:w-[50%] w-full mt-5'>
                 <div class="bg-white shadow-md shadow-gray-400 rounded-lg px-8 py-6 max-w-md">
                     
                     <h1 class="text-2xl font-bold text-center mb-4 ">Select Your E-Waste</h1>

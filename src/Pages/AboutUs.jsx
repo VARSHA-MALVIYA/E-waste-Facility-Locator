@@ -5,8 +5,7 @@ import appointmentIcon from '../assets/appointmentIconServices.png';
 import { OurServicesData } from '../data/data';
 
 const AboutUs = () => {
-
-    
+      
   return (
    <div>
 
@@ -52,8 +51,8 @@ const AboutUs = () => {
             <div class="relative  justify-center items-center flex  lg:py-3 xl:py-8 
                 lg:flex-1 lg:w-1/2">
                     
-                <div className='w-[30vw]  '>
-                    <p class="mt-8 text-gray-700 font-bold  text-3xl ">
+                <div className=' sm:w-[65vw] lg:w-[30vw]'>
+                    <p class="sm:mt-0 text-gray-700 font-bold  text-3xl ">
                         <i> “Earth provides enough to satisfy every man's needs, but not every man's greed.  ” </i>
                     </p>
                     <p className='text-right'> -Mahatma Gandhi </p>
@@ -102,7 +101,7 @@ const AboutUs = () => {
             </div>
         </div>
         
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap justify-center items-center lg:px-[15vw]">
             {/* cards */}
             {
                 OurServicesData?.map((dets,i)=>(
@@ -114,7 +113,7 @@ const AboutUs = () => {
                             xl:px-10
                             rounded-[20px]
                             bg-white
-                            shadow-md
+                            shadow-lg
                             hover:shadow-lg
                             mb-8
                             "
@@ -128,7 +127,7 @@ const AboutUs = () => {
                                 justify-center
                                 bg-blue-500
                                 rounded-2xl
-                                mb-8
+                                mb-2
                                 "
                                 >
                                 <img src={dets.icon} alt="" className={'h-8 w-8 filter invert '} />
@@ -147,7 +146,6 @@ const AboutUs = () => {
         </div>
     
     </section>
-
 
    </div>
   )
