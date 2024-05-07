@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export function formatDate(dateString) {
     // Extracting day, month, and year from the date object
     var date = new Date(dateString);
@@ -15,4 +17,18 @@ export function formatDate(dateString) {
 
     // Returning the formatted date string
     return day + '/' + month + '/' + year;
+}
+
+export function validateDate(selectedDate)
+{
+    const currentDate = new Date();
+    selectedDate = new Date(selectedDate);
+
+    if(selectedDate < currentDate)
+    {
+        toast.error("Please select a valid date",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+        return false
+    }
+
+    return true;
 }

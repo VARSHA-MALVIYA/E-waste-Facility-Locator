@@ -21,7 +21,7 @@ const DeviceInfoTable = () => {
         }
     ]
   return (
-    <div className="w-[40%] h-auto border border-black shadow-md shadow-gray-500 ">
+    <div className=" w-full sm:w-[40%] h-auto border border-black shadow-md shadow-gray-500 ">
         <p className='w-full text-xl font-semibold text-center text-white bg-[#22C55E] '> Waste Details </p>
 
         <table  className="w-full bg-white ">

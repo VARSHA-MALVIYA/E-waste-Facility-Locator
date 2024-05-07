@@ -102,16 +102,16 @@ const SearchDevice = ({NextHandler}) => {
 
         {
             deviceDetails && 
-            <div className='flex w-full my-[20vh] justify-evenly '  id='device_details'  >
+            <div className='flex flex-col md:flex-row w-full my-[15vh] justify-evenly '  id='device_details'  >
 
-            {/* table device information */}
-            <DeviceInfoTable/>
-            
-            
-            {/* animated gif */}
-            <div>
-                <img src={SearchDeviceImg} alt="" />
-            </div>
+                {/* table device information */}
+                <DeviceInfoTable/>
+                
+                
+                {/* animated gif */}
+                <div className=' w-full sm:w-auto'>
+                    <img src={SearchDeviceImg} alt="" />
+                </div>
             
             </div>
         }

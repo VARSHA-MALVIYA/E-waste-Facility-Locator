@@ -15,7 +15,7 @@ const CenterDetailCard = ({centerDets,NextHandler}) => {
   
   const {name,address,id} = centerDets ;
   return (
-    <div class="w-full gap-2 p-2 h-[28vh] border border-gray-500  rounded-md shadow-sm shadow-gray-400 flex ">
+    <div class="w-full gap-2 p-2 h-auto border border-gray-500  rounded-md shadow-sm shadow-gray-400 flex ">
 
         {/* pin icon */}
         <div className=''>

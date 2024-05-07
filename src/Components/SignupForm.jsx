@@ -18,62 +18,71 @@ const SignupForm = () => {
       });
   }
 
-  function submitHandler(){
+  function submitHandler(e){
+    e.preventDefault()
     signup(formData,navigator,setLoading,setError)
   }
   return (
     <div>
         {loading&&<Loader/>}
         
-        <div className="mt-2">
-            <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
-            <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
-              type="email"
-              value={formData.Email}
-              name='Email'
-              onChange={changeHandler}
-             />
-        </div>
-        
-        <div className="mt-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700">Password</label>
-            <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
-              type="password"
-              value={formData.Password}
-              name='Password'
-              onChange={changeHandler}
-             />
-        </div>
-        
-        <div className="mt-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700">Username</label>
-            <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
-              type="text"
-              value={formData.Username}
-              name='Username'
-              onChange={changeHandler}
-             />
-        </div>
-        
-        <div className="mt-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700">Name</label>
-            <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
-              type="text"
-              value={formData.Name}
-              name='Name'
-              onChange={changeHandler}
-             />
-        </div>
-        
-        {
-          error && <p>{error}</p>
-        }
-        
-        <div className="mt-8">
-            <button 
-            onClick={submitHandler}
-            className="bg-[#6092ff] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#4042E2]">Signup</button>
-        </div>
+        <form onSubmit={submitHandler} >
+
+            <div className="mt-2">
+                <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
+                <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
+                  type="email"
+                  value={formData.Email}
+                  name='Email'
+                  onChange={changeHandler}
+                  required
+                />
+            </div>
+            
+            <div className="mt-4">
+                <label className="block mb-2 text-sm font-bold text-gray-700">Password</label>
+                <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
+                  type="password"
+                  value={formData.Password}
+                  name='Password'
+                  onChange={changeHandler}
+                  required
+                />
+            </div>
+            
+            <div className="mt-4">
+                <label className="block mb-2 text-sm font-bold text-gray-700">Username</label>
+                <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
+                  type="text"
+                  value={formData.Username}
+                  name='Username'
+                  onChange={changeHandler}
+                  required
+                />
+            </div>
+            
+            <div className="mt-4">
+                <label className="block mb-2 text-sm font-bold text-gray-700">Name</label>
+                <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 
+                  type="text"
+                  value={formData.Name}
+                  name='Name'
+                  onChange={changeHandler}
+                  required
+                />
+            </div>
+            
+            {
+              error && <p className="text-xs font-semibold text-red-500"> * {error}</p>
+            }
+            
+            <div className="mt-8">
+                <button 
+                type="submit"
+                className="bg-[#6092ff] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#4042E2]">Signup</button>
+            </div>
+
+        </form>
         
     </div>
   )

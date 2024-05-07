@@ -55,11 +55,7 @@ const App = () => {
           <Route path='/dispose' element={<Dispose/>} />
           <Route path='/contact' element={<ContactUsPage/>} />
           
-          <Route path='/store' element={
-                                    <IsLoggedIn>
-                                      <Store/>
-                                    </IsLoggedIn>
-          } />
+          <Route path='/store' element={<Store/>} />
                                     
           <Route path='/about' element={<AboutUs/>} />
 
@@ -102,6 +98,9 @@ const App = () => {
             
           <Route path='/error' element={<Error/>} />
           <Route path='/accessError' element={<AccessError/>} />
+
+
+          <Route path='*' element={<Error/>} />
           
         </Routes>
         

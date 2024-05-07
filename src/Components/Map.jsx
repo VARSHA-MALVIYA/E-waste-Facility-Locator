@@ -106,10 +106,11 @@ const Map = ({NextHandler}) => {
     <div className="w-full h-full">
         {
             loading ? <Loader/> :
-            <div className='w-full px-3 flex bg-white mx-auto  min-h-[95%] '>
+
+            <div className='w-full px-3 flex flex-col sm:flex-row bg-white mx-auto  min-h-[95%] '>
 
                 {/* left */}
-                <div className='w-[40%] p-5 h-full'>
+                <div className=' w-full sm:w-[40%] sm:p-5 h-full'>
 
                         <div>
                             <p className='text-2xl font-semibold'>Find The Best Nearby <br /> <span className='font-bold text-green-500'>E-Waste Center</span> </p>
@@ -119,13 +120,13 @@ const Map = ({NextHandler}) => {
                             <p className='text-xs font-semibold text-red-500 underline'>Default Position is set to New Delhi.</p>
                         </div>
 
-                        <div className='flex my-[5vh]'>
+                        <div className='flex  flex-col sm:flex-row gap-2 sm:gap-0 w-full my-[5vh]'>
 
-                            <button onClick={showUserPosition}  class="px-5  mx-auto py-2.5 font-medium bg-blue-100 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-2xl text-sm">
-                                My Position
+                            <button onClick={showUserPosition}  class=" sm:px-5 p-2 sm:py-2.5 w-full sm:w-[45%] text-sm sm:font-medium bg-blue-100 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-2xl ">
+                                My Location
                             </button>
 
-                            <button onClick={showEwasteCenters} disabled={!isMyLocationClicked}   class="relative rounded-2xl mx-auto  px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 disabled:cursor-not-allowed">
+                            <button onClick={showEwasteCenters} disabled={!isMyLocationClicked}   class="relative rounded-2xl mx-auto p-3 w-full sm:w-[45%] sm:px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 disabled:cursor-not-allowed">
                                 <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                                 <span class="relative ">Nearby Centers</span>
                             </button>
@@ -135,7 +136,7 @@ const Map = ({NextHandler}) => {
                 </div>
 
                 {/* right */}
-                <div className='w-[60%] p-2 h-full flex flex-col items-center bg-white'>
+                <div className='w-full sm:w-[60%] p-2 h-full flex flex-col items-center bg-white'>
 
                     {/* div for map */}
                     <div
@@ -160,7 +161,7 @@ const Map = ({NextHandler}) => {
                             </>
                         :
                         <p className='flex items-center font-semibold'>
-                            <img src={leftArrowIcon} alt="" />
+                            <img src={leftArrowIcon} alt="" className=' hidden sm:block  ' />
                             Click on <span className='bg-[#e1ecfb] p-2 rounded-md ml-1'> { isMyLocationClicked?"Nearby Centers":" My Position" } </span>
                         </p>
                     }

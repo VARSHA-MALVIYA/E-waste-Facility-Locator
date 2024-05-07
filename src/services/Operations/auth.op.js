@@ -27,25 +27,23 @@ export function login(loginDets,navigator,setLoading,setError)
                 body: JSON.stringify(loginDets)
             });
 
-            if(res.ok)
+            const data = await res.json()
+            if(data?.success)
             {
-                const data = await res.json()
-                if(data?.success)
-                {
-                    dispatch(setToken(data?.token))
-                    dispatch(setUser(data?.user))
+                dispatch(setToken(data?.token))
+                dispatch(setUser(data?.user))
 
-                    if(data?.user?.Role === "Normal")  navigator("/")
-                    else if(data?.user?.Role === "Operator")  navigator("/editorDashboard")
-                    else  navigator("/adminDashboard")
-                   
-                    toast.success("Logged in",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
-                }
-                else{
-                    setError(data?.message)
-                    toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
-                }
+                if(data?.user?.Role === "Normal")  navigator("/")
+                else if(data?.user?.Role === "Operator")  navigator("/editorDashboard")
+                else  navigator("/adminDashboard")
+                
+                toast.success("Logged in",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
             }
+            else{
+                setError(data?.message)
+                toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+            }
+            
             
         } catch (error) {
             toast.error("Something went wrong.")
@@ -67,19 +65,18 @@ export async function signup(signupDets,navigator,setLoading,setError)
             body: JSON.stringify(signupDets)
         });
 
-        if(res.ok)
+        
+        const data = await res.json()
+        if(data?.success)
         {
-            const data = await res.json()
-            if(data?.success)
-            {
-                navigator("/login")
-                toast.success("Signed Up",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
-            }
-            else{
-                setError(data?.message)
-                toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
-            }
+            navigator("/login")
+            toast.success("Signed Up",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
         }
+        else{
+            setError(data?.message)
+            toast.error("Failed",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+        }
+        
         
     } catch (error) {
         toast.error("Something went wrong.",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})

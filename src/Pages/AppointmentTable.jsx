@@ -1,20 +1,24 @@
 import { useSelector } from "react-redux"
 import appointmentIcon from '../assets/appointment.png'
-import { useState } from "react";
+import { useState,useEffect, useRef } from "react";
 import { bookAppointment } from "../services/Operations/appointment";
 import Loader from '../Components/Loader'
 import BookedIcon from '../assets/bookedAppointment_ani.gif'
 import { useNavigate } from "react-router-dom";
 import Modal from "../Components/Modal";
+import { validateDate } from "../data/utils";
 
 const AppointmentTable = () => {
     
     const {user} = useSelector(store => store.Auth);
     const {centerClickedForAppointment,deviceSelected} = useSelector(store => store.User);
     const [showError, setShowError] = useState(null)
+    const dateObj = useRef(null);
 
     const centerDetails = centerClickedForAppointment;
     const deviceDetails = deviceSelected;
+
+    
 
     const [formData,setFormData] = useState({
         date:"",
@@ -26,6 +30,9 @@ const AppointmentTable = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+
+        validateDate(value) && 
+        
         setFormData(prevState => ({
         ...prevState,
         [name]: value
@@ -42,7 +49,8 @@ const AppointmentTable = () => {
         time: formData.time,
     }
 
-    const  handleSubmit = ()=>{
+    const  handleSubmit = (e)=>{
+        e.preventDefault()
         if(!formData.date && !formData.time)
             setShowError(true)
         else
@@ -50,6 +58,11 @@ const AppointmentTable = () => {
     }
 
     const closeModal = ()=> setShowModal(false)
+
+
+    useEffect(()=>{
+
+    },[])
     
   return (
     <div className="items-center  text-black w-[80%] mx-auto flex flex-col " >
@@ -138,7 +151,9 @@ const AppointmentTable = () => {
             </tbody>
         </table>
 
-        <form  className="w-[80%] flex flex-col gap-5 items-center ">
+        <form
+          onSubmit={handleSubmit}
+          className="w-[80%] flex flex-col gap-5 items-center ">
 
                 <div className='flex w-full gap-10 '>
 
@@ -163,6 +178,7 @@ const AppointmentTable = () => {
                         name="time"
                         required={true}
                         value={formData.time}
+                        min="09:00:00" max="17:00:00"
                         onChange={handleChange}
                         className="w-full px-3 py-2 bg-gray-100 rounded"
                         />
@@ -170,16 +186,18 @@ const AppointmentTable = () => {
 
                 </div>
 
+                <button 
+                    type="submit"
+                    class="inline-flex gap-2 my-4 items-center justify-center px-4 py-1 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
+                    <img src={appointmentIcon} alt="" className='w-5 h-5' />
+                    Book Appointment
+                </button>
+
         </form>
 
         <p className="italic font-semibold text-red-500"> {showError && "Please select Date or Time to proceed."} </p>
 
-        <button 
-                onClick={handleSubmit}
-                class="inline-flex gap-2 my-4 items-center justify-center px-4 py-1 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
-                <img src={appointmentIcon} alt="" className='w-5 h-5' />
-                Book Appointment
-        </button>
+        
 
         {
             showModal &&
