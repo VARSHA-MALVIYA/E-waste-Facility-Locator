@@ -7,7 +7,8 @@ const {
     GET_UNAPPROVED_OPERATORS,
     APPROVE_OPERATOR,
     CONTACT_US,
-    ADD_EWASTE
+    ADD_EWASTE,
+    GET_ALL_MESSAGES
 } = Admin
 
 export const getUnapprovedOperators = async(setPendingOperators,setLoading)=>{
@@ -45,6 +46,7 @@ export const ContactUs = async(formData,setShowModal,setLoading) => {
         if(data.success)
         {
             setShowModal(true)
+            toast.success("Message Sent Successfully",{position:'top-center',autoClose:1000,hideProgressBar:true,closeButton:false})
         }
         else{
             toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
@@ -54,6 +56,27 @@ export const ContactUs = async(formData,setShowModal,setLoading) => {
     }
     setLoading(false)
 }
+
+export const getAllMessages = async(setAllMessages,setLoading) => {
+    setLoading(true)
+    try {
+        const res = await apiConnector("GET",GET_ALL_MESSAGES);
+        const {data} = res ;
+        if(data.success)
+        {
+            setAllMessages(data?.messages)
+        }
+        else{
+            toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+        }
+    } catch (error) {
+        console.log(error)
+        toast.error("Something went wrong",{position:'top-center',autoClose:2000,hideProgressBar:true,closeButton:false})
+    }
+    setLoading(false)
+}
+
+
 
 export const addEwaste = async(formData,setShowModal,setLoading,setFormData) => {
     setLoading(true)

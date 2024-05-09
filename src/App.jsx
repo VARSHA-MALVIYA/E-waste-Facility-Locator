@@ -39,6 +39,9 @@ import E_Waste from './Pages/E_Waste'
 import AdminAuthPage from './Pages/AdminAuthPage'
 import OperatorAuthPage from './Pages/OperatorAuthPage'
 import IsLoggedIn from './Authorization/LoggedIn.authorization'
+import OperatorNotApproved from './Pages/OperatorNotApproved'
+import OperatorRequestAdmin from './Pages/OperatorRequestAdmin'
+import AdminMessages from './Pages/AdminMessages'
 
 const App = () => {
   return (
@@ -79,7 +82,8 @@ const App = () => {
             <Route path='/editorDashboard/ewaste' element={<E_Waste/>} />
             <Route path='/editorDashboard/educationalPopup_add' element={<AddEducationalPopup/>} />
             <Route path='/editorDashboard/educationalPopup' element={<EducationalPopup/>} />
-            <Route path='/editorDashboard/not_approved' element={<div>Not Approved</div>} />
+            <Route path='/editorDashboard/not_approved' element={<OperatorNotApproved />} />
+            <Route path='/editorDashboard/requestAdmin' element={<OperatorRequestAdmin />} />
           </Route>
           
           <Route path='/adminDashboard' element={ <Admin> <DashboardTemplate/> </Admin> } >
@@ -90,10 +94,12 @@ const App = () => {
             <Route path='/adminDashboard/ewaste' element={<E_Waste/>} />
             <Route path='/adminDashboard/educationalPopup_add' element={<AddEducationalPopup/>} />
             <Route path='/adminDashboard/educationalPopup' element={<EducationalPopup/>} />
+            <Route path='/adminDashboard/messages' element={<AdminMessages/>} />
           </Route>
           
           
           <Route path='/not' element={<DeviceNotFound/>} />
+          
             
             
           <Route path='/error' element={<Error/>} />
