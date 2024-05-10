@@ -42,6 +42,7 @@ import IsLoggedIn from './Authorization/LoggedIn.authorization'
 import OperatorNotApproved from './Pages/OperatorNotApproved'
 import OperatorRequestAdmin from './Pages/OperatorRequestAdmin'
 import AdminMessages from './Pages/AdminMessages'
+import User from './Authorization/User.authorization'
 
 const App = () => {
   return (
@@ -50,25 +51,37 @@ const App = () => {
 
       <Layout>
 
-        <Routes className={"w-screen"}>
+        <Routes>
           
           <Route path='/' element={<Home/>} />
+
           <Route path='/login' element={<AuthTemplate dets={LoginDets} />} />
           <Route path='/signup' element={<AuthTemplate dets={SignupDets}/>} />
-          <Route path='/dispose' element={<Dispose/>} />
-          <Route path='/contact' element={<ContactUsPage/>} />
-          
-          <Route path='/store' element={<Store/>} />
-                                    
-          <Route path='/about' element={<AboutUs/>} />
-
           <Route path='/admin' element={<AdminAuthPage/>} />
           <Route path='/operator' element={<OperatorAuthPage/>} />
+          <Route path='/about' element={<AboutUs/>} />
+
+
+
+          <Route path='/dispose' element={
+            <User>
+              <Dispose/>
+            </User>
+          } />
+
+          <Route path='/contact' element={
+            <User>
+              <ContactUsPage/>
+            </User>
+          } />
           
-          <Route path='/test' element={<Test/>} />
-          
-          
-          <Route path='/dashboard' element={<DashboardTemplate/>} >
+          <Route path='/store' element={
+            <User>
+              <Store/>
+            </User>
+          } />    
+
+          <Route path='/dashboard' element={<User> <DashboardTemplate/> </User> } >
             <Route path='/dashboard/' element={<Profile/>} />
             <Route path='/dashboard/appointments' element={<Appointments/>} />
             <Route path='/dashboard/my_orders' element={<MyOrders/>} />
@@ -98,15 +111,11 @@ const App = () => {
           </Route>
           
           
-          <Route path='/not' element={<DeviceNotFound/>} />
-          
-            
-            
           <Route path='/error' element={<Error/>} />
           <Route path='/accessError' element={<AccessError/>} />
-
-
           <Route path='*' element={<Error/>} />
+
+          <Route path='/test' element={<Test/>} />
           
         </Routes>
         
