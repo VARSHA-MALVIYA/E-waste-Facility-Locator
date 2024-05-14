@@ -7,6 +7,7 @@ import Loader from '../Components/Loader'
 import {useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+import { goToSection } from '../data/utils'
 
 const SearchDevice = ({NextHandler}) => {
 
@@ -24,7 +25,11 @@ const SearchDevice = ({NextHandler}) => {
     const navigator = useNavigate();
     const dispatch = useDispatch()
 
-    
+
+    useEffect(()=>{
+        goToSection('device_details')
+    },[deviceDetails]);
+
     
 
     useEffect(()=>{
@@ -105,7 +110,7 @@ const SearchDevice = ({NextHandler}) => {
             <div className='flex flex-col md:flex-row w-full my-[15vh] justify-evenly '  id='device_details'  >
 
                 {/* table device information */}
-                <DeviceInfoTable/>
+                <DeviceInfoTable deviceDetails={deviceDetails}  />
                 
                 
                 {/* animated gif */}

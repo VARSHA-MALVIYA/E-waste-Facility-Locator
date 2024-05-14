@@ -44,3 +44,7 @@
 .aboutBg{
   background-image: url('./assets/about_bg.png');
 }
+
+.svg-invert:hover path {
+  filter: invert(1);
+}

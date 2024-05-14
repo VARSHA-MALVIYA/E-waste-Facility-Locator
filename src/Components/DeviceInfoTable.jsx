@@ -1,6 +1,6 @@
 
 
-const DeviceInfoTable = () => {
+const DeviceInfoTable = ({deviceDetails}) => {
     const name = "Redmi Note 7s";
     const category = "Mobile";
     const modelNumber = '7s'
@@ -21,31 +21,31 @@ const DeviceInfoTable = () => {
         }
     ]
   return (
-    <div className=" w-full sm:w-[40%] h-auto border border-black shadow-md shadow-gray-500 ">
+    <div className=" w-full sm:w-[30%] h-auto border  border-gray-600 shadow-lg shadow-slate-300  ">
         <p className='w-full text-xl font-semibold text-center text-white bg-[#22C55E] '> Waste Details </p>
 
         <table  className="w-full bg-white ">
 
         <tbody className='w-full '>
 
-            <tr className="overflow-hidden text-xl font-montserrat">
+            <tr className="overflow-hidden font-montserrat">
             <td className="px-4 py-2 font-semibold text-gray-800">Name:</td>
-            <td className="px-4 py-2">{name}</td>
+            <td className="px-4 py-2">{deviceDetails?.name}</td>
             </tr>
 
-            <tr className="overflow-hidden text-xl font-montserrat">
+            <tr className="overflow-hidden font-montserrat">
             <td className="px-4 py-2 font-semibold text-gray-800">Category:</td>
-            <td className="px-4 py-2">{category}</td>
+            <td className="px-4 py-2">{deviceDetails?.category}</td>
             </tr>
 
-            <tr className="overflow-hidden text-xl font-montserrat">
+            <tr className="overflow-hidden font-montserrat">
             <td className="px-4 py-2 font-semibold text-gray-800">Model Number:</td>
-            <td className="px-4 py-2">{modelNumber}</td>
+            <td className="px-4 py-2">{deviceDetails?.modelNumber}</td>
             </tr>
 
-            <tr className="overflow-hidden text-xl font-montserrat">
+            <tr className="overflow-hidden font-montserrat">
             <td className="px-4 py-2 font-semibold text-gray-800">Green Points:</td>
-            <td className="px-4 py-2">{greenPoints}</td>
+            <td className="px-4 py-2">{deviceDetails?.greenPoints}</td>
             </tr>
 
         </tbody>
@@ -65,12 +65,12 @@ const DeviceInfoTable = () => {
             </tr>
 
             {
-            preciousMetals.map((metal)=>(
-                <tr className='text-lg text-center font-montserrat' >
-                    <td> {metal.name} </td>
-                    <td> {metal.weight} </td>
-                </tr>
-            ))
+                deviceDetails?.preciousMetals.map((metal)=>(
+                    <tr className=' text-center font-montserrat' >
+                        <td> {metal.name} </td>
+                        <td> {metal.weight} </td>
+                    </tr>
+                ))
             }
 
         </tbody>

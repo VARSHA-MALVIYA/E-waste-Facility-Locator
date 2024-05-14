@@ -32,3 +32,8 @@ export function validateDate(selectedDate)
 
     return true;
 }
+
+export function goToSection(sectionId){
+    var section = document.getElementById(sectionId);
+    section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}

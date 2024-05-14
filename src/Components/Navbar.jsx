@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import { navs } from '../data/data';
 import userImg from '../assets/user.png'
 import logo2 from "../assets/logo2.jpg"
+import { useState } from 'react';
 
 const Navbar = () => {
     
     const {token,user} = useSelector(store => store.Auth)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigator = useNavigate()
     const location = useLocation();
     const {pathname} = location
@@ -75,7 +77,7 @@ const Navbar = () => {
                         <img src={logo2} height={30}  width={120} alt="logo" />
                     </Link>
 
-                    <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <div className=" items-center hidden md:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
                         {
                             token ? 
@@ -120,6 +122,33 @@ const Navbar = () => {
                             <NavLink to="/about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</NavLink>
                         </li>
                         </ul>
+                    </div>
+
+
+                    {/* mobile  menu */}
+                    {
+                        isMenuOpen &&
+                        <div className='h-screen w-full flex flex-col items-center absolute left-0 top-[10vh] bg-gray-300 border border-black ' >
+                            
+                            <NavLink to="/" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" >Home</NavLink>
+                            <NavLink to="/dispose" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Dispose</NavLink>
+                            <NavLink to="/store" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Store</NavLink>
+                            <NavLink to="/contact" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</NavLink>
+                            <NavLink to="/about" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</NavLink>
+
+                        </div>
+                    }
+
+
+                    <div className='md:hidden  ' >
+                        <button onClick={()=>setIsMenuOpen(prev => !prev)} > 
+                            {
+                                isMenuOpen ? 
+                                <svg viewBox="0 0 24 24" fill="none" className='h-6 w-6' xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9393 12L6.9696 15.9697L8.03026 17.0304L12 13.0607L15.9697 17.0304L17.0304 15.9697L13.0607 12L17.0303 8.03039L15.9696 6.96973L12 10.9393L8.03038 6.96973L6.96972 8.03039L10.9393 12Z" fill="#080341"></path> </g></svg>
+                                :
+                                <svg viewBox="0 0 24 24" fill="none" className='h-6 w-6' xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            }
+                        </button>
                     </div>
 
                 </div>
