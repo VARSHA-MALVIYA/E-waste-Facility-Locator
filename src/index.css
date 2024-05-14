@@ -48,3 +48,10 @@
 .svg-invert:hover path {
   filter: invert(1);
 }
+.invert {
+  filter: invert(100%);
+}
+
+#sidebar .active{
+  background-color: blue;
+}

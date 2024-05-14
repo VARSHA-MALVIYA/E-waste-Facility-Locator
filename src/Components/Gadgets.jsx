@@ -14,7 +14,7 @@ const Gadgets = () => {
   }
   
   return (
-    <div className="w-full h-auto gap-3 p-3 justify-evenly md:py-16">
+    <div className="w-full h-fit gap-3 p-3 justify-evenly md:py-16">
 
         <div className="max-w-2xl mx-auto text-center">
             <h2 className=" text-2xl  text-black font-bold mx-auto md:text-6xl lg:text-5xl">Some common categories of <span className="text-green-800">E-Waste</span></h2>
@@ -34,7 +34,7 @@ const Gadgets = () => {
         </div>
 
         {/* card shown as per selection */}
-        <div className="lg:h-[70vh] h-auto flex gap-4 p-3  justify-evenly flex-wrap">
+        <div className=" h-[70vh] flex gap-4 p-3  justify-evenly flex-wrap">
           {
             currCards.map((cardData,i) => (
               <GadgetCard key={i} cardData={cardData} />
