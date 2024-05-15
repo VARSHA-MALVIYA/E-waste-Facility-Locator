@@ -4,6 +4,7 @@ import Modal from '../Components/Modal'
 import Loader from '../Components/Loader'
 import { useState } from 'react'
 import { ContactUs } from '../services/Operations/admin.op'
+import Footer from '../Components/Footer'
 
 const ContactUsPage = () => {
     
@@ -164,7 +165,12 @@ const ContactUsPage = () => {
                 </button>
             </div>
         </Modal>
+    
+    
     }
+
+
+    <Footer/>
     
     </div>
   )

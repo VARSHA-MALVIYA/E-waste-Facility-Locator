@@ -3,6 +3,7 @@ import GandhijiImg from '../assets/Gandhiji_img.png'
 import ManAndTruck from '../assets/man_and_truck.jpg'
 import appointmentIcon from '../assets/appointmentIconServices.png';
 import { OurServicesData } from '../data/data';
+import Footer from '../Components/Footer';
 
 const AboutUs = () => {
       
@@ -146,6 +147,9 @@ const AboutUs = () => {
         </div>
     
     </section>
+
+
+    <Footer/>
 
    </div>
   )
