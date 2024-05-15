@@ -33,6 +33,7 @@ export const Admin = {
     APPROVE_OPERATOR : `${BASEURL}/admin/approveOperator`,
     CONTACT_US : `${BASEURL}/admin/contactUs`,
     GET_ALL_MESSAGES : `${BASEURL}/admin/getAllMessages`,
+    BULK_EWASTE_ADD : `${BASEURL}/admin/bulkEwasteAdd`,
 }
 
 export const EducationalPopup = {

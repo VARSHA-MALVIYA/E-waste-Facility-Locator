@@ -5,7 +5,6 @@ const DeviceInfoTable = ({deviceDetails}) => {
     const category = "Mobile";
     const modelNumber = '7s'
     const greenPoints = 50;
-    
     const preciousMetals = [
         {
             name:"Gold",
