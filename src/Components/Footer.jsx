@@ -1,6 +1,7 @@
 // import Logo from '../assets/'
 
 import { Link, NavLink } from "react-router-dom"
+import SiteLogo from '../assets/finalLogo.png'
 
 const Footer = () => {
   return (
@@ -10,10 +11,9 @@ const Footer = () => {
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" class="flex items-center">
-                  <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                  <span class="self-center text-2xl font-semibold whitespace-nowrap ">EcoGeeks</span>
-              </a>
+              <Link to="/" class="flex items-center">
+                  <img src={SiteLogo} class="h-8 me-3" alt="Logo" />
+              </Link>
           </div>
 
 

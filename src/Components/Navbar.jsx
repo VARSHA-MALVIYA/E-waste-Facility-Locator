@@ -5,6 +5,7 @@ import { navs } from '../data/data';
 import userImg from '../assets/user.png'
 import logo2 from "../assets/logo2.jpg"
 import { useState } from 'react';
+import SiteLogo from '../assets/finalLogo.png'
 
 const Navbar = () => {
     
@@ -74,7 +75,7 @@ const Navbar = () => {
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
                     <Link to="/" class="flex p-0 m-0 items-center space-x-3 rtl:space-x-reverse">
-                        <img src={logo2} height={30}  width={120} alt="logo" />
+                        <img src={SiteLogo} height={20}  width={120} alt="logo"  />
                     </Link>
 
                     <div className=" items-center hidden md:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -105,7 +106,7 @@ const Navbar = () => {
 
                     {/* nav items {centered} */}
                     <div className="items-center lg:justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                        <ul className="flex flex-col font-md text-xl p-4 gap-5 font-serif md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                        <ul className="flex flex-col font-md text-xl p-4 gap-5  md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                         <li>
                             <NavLink to="/" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" >Home</NavLink>
                         </li>
