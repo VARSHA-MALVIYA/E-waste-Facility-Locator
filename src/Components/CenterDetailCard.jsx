@@ -35,10 +35,10 @@ const CenterDetailCard = ({centerDets,NextHandler}) => {
                 Book Appointment
               </button>
               
-              <button  class="inline-flex text-gray-900 my-4 items-center justify-center gap-1 px-4 py-1 text-base font-medium leading-6  whitespace-no-wrap bg-[#45DB7C] border border-[#4dff8e] rounded-md shadow-sm hover:bg-[#41c371] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
+              {/* <button  class="inline-flex text-gray-900 my-4 items-center justify-center gap-1 px-4 py-1 text-base font-medium leading-6  whitespace-no-wrap bg-[#45DB7C] border border-[#4dff8e] rounded-md shadow-sm hover:bg-[#41c371] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" data-rounded="rounded-md" data-primary="blue-600" data-primary-reset="{}">
                 <img src={showonmapIcon} alt="" className='w-5 h-5' />
                 Show on Map
-              </button>
+              </button> */}
             </div>
 
         </div>

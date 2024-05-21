@@ -32,7 +32,8 @@ const PlaceOrder = () => {
         })
     }
 
-    const submitHandler = ()=> {
+    const submitHandler = (e)=> {
+        e.preventDefault();
         if(!user) {
             toast.error("Please Login first",{position:'top-center',autoClose:1500,hideProgressBar:true,closeButton:false})
             navigator("/login");

@@ -38,7 +38,7 @@ const LoginForm = () => {
             loading ? <Loader/>
             :
             <>
-                <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                {/* <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                     <div className="px-4 py-3">
                         <svg className="w-6 h-6" viewBox="0 0 40 40">
                             <path
@@ -55,8 +55,8 @@ const LoginForm = () => {
                                 fill="#1976D2" />
                         </svg>
                     </div>
-                    <Link to={'/error'}  className="w-5/6 px-4 py-3 font-bold text-center text-gray-600">Sign in with Google </Link>
-        </a>
+                     <Link to={'/error'}  className="w-5/6 px-4 py-3 font-bold text-center text-gray-600">Sign in with Google </Link>
+        </a> */}
         <div className="mt-4">
                     <label className="block mb-2 text-sm font-bold text-gray-700">Email Address</label>
                     <input className="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" 

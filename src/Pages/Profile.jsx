@@ -66,7 +66,7 @@ const Profile = () => {
                                 </div>
         
                                 <img src={userImg} alt="userImg" 
-                                     className="h-[141px] bg-white w-[141px] object-cover rounded-full "
+                                     className="h-[10%] bg-white w-[10%] object-cover rounded-full "
                                 />
                                     
                             </div>

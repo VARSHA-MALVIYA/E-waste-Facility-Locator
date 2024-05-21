@@ -68,7 +68,7 @@ const EducationalPopup = () => {
                         
                     </div>
                     
-                    <div class="overflow-x-auto">
+                    <div className="overflow-x-auto">
                         
                         {
                             allEducationalPopup ? 
@@ -83,7 +83,7 @@ const EducationalPopup = () => {
                                     <tbody>
                                         {
                                             allEducationalPopup?.map((popup,i)=>(
-                                                <tr key={i}  class="border-b ">
+                                                <tr key={i}  class="border-b w-full">
                                                     <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">{popup?.title}</th>
                                                     <td class="px-4 py-3">{popup?.description}</td>
                                                     <td class="px-4 py-3 flex items-center justify-center">

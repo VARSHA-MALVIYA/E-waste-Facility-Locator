@@ -141,7 +141,7 @@ const App = () => {
 
       </Layout>
 
-      <div class= {` ${ popOpen ? 'block' : 'hidden' } border-0 transition-all delay-200 bg-white h-[25vh] w-[23vw] fixed bottom-[15vh] right-3 border-t-4 border-green-500 rounded z-[999] shadow-md text-sm`} >
+      <div class= {` ${ popOpen ? 'block' : 'hidden' } border-0 transition-all delay-200 bg-white w-[70vw] h-[25vh] lg:w-[23vw] fixed bottom-[15vh] right-3 border-t-4 border-green-500 rounded z-[999] shadow-md text-sm`} >
         <div class="bg-white p-3 border border-t-0 rounded-t-none rounded-b flex flex-col space-y-2">
           <h4 className='text-lg font-semibold '>{allEducationalPopup[currentPopupIndex]?.title}</h4>
           <p> {allEducationalPopup[currentPopupIndex]?.description} </p>

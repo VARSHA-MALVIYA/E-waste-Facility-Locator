@@ -42,7 +42,7 @@ const Navbar = () => {
                         </button>
                         <a href="#" class="text-xl font-bold flex items-center lg:ml-2.5">
                             <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="Windster Logo" />
-                            <span class="self-center whitespace-nowrap">E-Waste Project</span>
+                            <span class="self-center whitespace-nowrap">E-Waste Management Team</span>
                         </a>
                         
                         </div>
@@ -54,10 +54,10 @@ const Navbar = () => {
                             </svg>
                         </button>
                         <div class="hidden lg:flex items-center">
-                            <span class="text-base font-normal text-gray-500 mr-5">❤️</span>
+                            <span class="text-2xl font-normal text-gray-500 mr-5">❤️</span>
                             
                         </div>
-                        <a href={`${import.meta.env.WEBSITE_URL}`} target='_blank' class="hidden sm:inline-flex ml-5 text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
+                        <a href={`https://ecogeek.netlify.app/`} target='_blank' class="hidden sm:inline-flex ml-5 text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
                             Visit Website
                         </a>
                         </div>
@@ -129,13 +129,23 @@ const Navbar = () => {
                     {/* mobile  menu */}
                     {
                         isMenuOpen &&
-                        <div className='h-screen w-full flex flex-col items-center absolute left-0 top-[10vh] bg-gray-300 border border-black ' >
+                        <div className='h-[50vh] w-full flex gap-y-3 flex-col items-center pt-5 text-black absolute left-0 top-[13vh] bg-white border border-t-black' >
                             
-                            <NavLink to="/" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" >Home</NavLink>
+                            <NavLink to="/" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-xl text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" >Home</NavLink>
                             <NavLink to="/dispose" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Dispose</NavLink>
                             <NavLink to="/store" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Store</NavLink>
-                            <NavLink to="/contact" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</NavLink>
-                            <NavLink to="/about" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</NavLink>
+                            <NavLink to="/contact" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact Us</NavLink>
+                            <NavLink to="/about" onClick={()=>setIsMenuOpen(prev => !prev)} class="block p-5 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us </NavLink>
+
+                            <div className='flex flex-col gap-3'>
+                                <Link to={'/signup'} onClick={()=>setIsMenuOpen(prev => !prev)}  class="px-6 py-3.5 font-medium text-[17px] bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm">
+                                    Signup
+                                </Link>
+                                <Link to={'/login'} onClick={()=>setIsMenuOpen(prev => !prev)} class="inline-flex items-center text-[17px] justify-center w-full px-6 py-3.5 text-sm font-semibold text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-primary-reset="{}">
+                                    Login
+                                    <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </Link>
+                            </div>
 
                         </div>
                     }
